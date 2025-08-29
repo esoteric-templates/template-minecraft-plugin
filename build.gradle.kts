@@ -11,8 +11,9 @@ plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     alias(libs.plugins.kotlin.jvm)
 
-    // Apply the application plugin to add support for building a CLI application in Java.
-    application
+    alias(libs.plugins.paper)
+    alias(libs.plugins.paper.convention)
+    alias(libs.plugins.paper.run)
 }
 
 repositories {
@@ -28,6 +29,8 @@ dependencies {
     testImplementation(libs.junit.jupiter.engine)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    paperweight.paperDevBundle("1.21.8-R0.1-SNAPSHOT")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -35,11 +38,6 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
-}
-
-application {
-    // Define the main class for the application.
-    mainClass = "org.example.AppKt"
 }
 
 tasks.named<Test>("test") {
@@ -52,14 +50,18 @@ tasks.withType<AbstractArchiveTask>().configureEach {
     isReproducibleFileOrder = true
 }
 
-tasks.withType<Jar>().configureEach {
-    manifest {
-        attributes[Attributes.Name.MAIN_CLASS.toString()] = application.mainClass
-    }
-}
+sourceSets.main {
+    resourceFactory {
+        paperPluginYaml {
+            name = "Template"
 
-configurations.all {
-    resolutionStrategy {
-        failOnNonReproducibleResolution()
+            main = "org.example.Plugin"
+            apiVersion = "1.21.8"
+            version = "0.1.0-SNAPSHOT"
+
+            authors.add(
+                "Esoteric Enderman"
+            )
+        }
     }
 }

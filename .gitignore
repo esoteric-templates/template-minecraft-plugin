@@ -11,3 +11,9 @@ gradlew.bat
 
 # Ignore unneeded Kotlin data
 .kotlin
+
+# Ignore testing folder
+run/*
+
+# Don't ignore EULA agreement
+!run/eula.txt

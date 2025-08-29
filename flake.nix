@@ -1,5 +1,5 @@
 {
-	description = "A template repository for Kotlin projects";
+	description = "A template repository for Minecraft plugins";
 
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -19,7 +19,12 @@
 				devShell = pkgs.mkShell {
 					buildInputs = with pkgs; [
 						gradle
+						udev
 					];
+
+					shellHook = ''
+						export LD_LIBRARY_PATH=${pkgs.udev}/lib:$LD_LIBRARY_PATH
+					'';
 				};
 			});
 }
