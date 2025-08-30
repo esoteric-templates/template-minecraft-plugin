@@ -5,6 +5,7 @@ package org.example
 
 import org.bukkit.plugin.java.JavaPlugin
 
+@Suppress("unused")
 class Plugin : JavaPlugin() {
 
     private val pair = Pair<String, String>("Hello World!", "Goodbye World!")
