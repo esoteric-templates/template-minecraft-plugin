@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import java.util.jar.Attributes
 
 /*
@@ -8,6 +9,8 @@ import java.util.jar.Attributes
  */
 
 plugins {
+    alias(libs.plugins.shadow)
+
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     alias(libs.plugins.kotlin.jvm)
 
@@ -45,6 +48,13 @@ application {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.withType<ShadowJar>().configureEach {
+    minimize()
+
+    enableAutoRelocation = true
+    relocationPrefix = "org.example.dependencies"
 }
 
 tasks.withType<AbstractArchiveTask>().configureEach {

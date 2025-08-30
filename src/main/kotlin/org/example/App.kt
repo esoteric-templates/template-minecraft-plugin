@@ -8,8 +8,18 @@ class App {
         get() {
             return "Hello World!"
         }
+
+    val farewell: String
+        get() {
+            return "Goodbye World!"
+        }
 }
 
 fun main() {
-    println(App().greeting)
+    val app = App()
+
+    val pair = Pair<String, String>(app.greeting, app.farewell)
+
+    println(pair.first)
+    println(pair.second)
 }
