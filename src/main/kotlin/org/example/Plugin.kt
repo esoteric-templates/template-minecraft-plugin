@@ -5,4 +5,15 @@ package org.example
 
 import org.bukkit.plugin.java.JavaPlugin
 
-class Plugin : JavaPlugin()
+class Plugin : JavaPlugin() {
+
+    private val pair = Pair<String, String>("Hello World!", "Goodbye World!")
+
+    override fun onEnable() {
+        logger.info(pair.first)
+    }
+
+    override fun onDisable() {
+        logger.info(pair.second)
+    }
+}
