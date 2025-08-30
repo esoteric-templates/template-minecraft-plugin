@@ -62,6 +62,8 @@ sourceSets.main {
             authors.add(
                 "Esoteric Enderman"
             )
+
+            website = "https://gitlab.com/esoterictemplates/template-minecraft-plugin"
         }
     }
 }
