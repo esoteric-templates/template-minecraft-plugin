@@ -58,6 +58,11 @@ tasks.withType<ShadowJar>().configureEach {
 tasks.withType<AbstractArchiveTask>().configureEach {
     isPreserveFileTimestamps = false
     isReproducibleFileOrder = true
+
+    from("LICENSE")
+    from("assets/text/licenses/") {
+        into("licenses/")
+    }
 }
 
 sourceSets.main {
