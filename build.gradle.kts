@@ -62,6 +62,9 @@ tasks.withType<AbstractArchiveTask>().configureEach {
     isReproducibleFileOrder = true
 
     from("LICENSE")
+    from("assets/text/licenses/") {
+        into("licenses/")
+    }
 }
 
 tasks.withType<Jar>().configureEach {
