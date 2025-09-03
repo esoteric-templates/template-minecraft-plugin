@@ -1,5 +1,3 @@
-import java.util.jar.Attributes
-
 plugins {
     alias(libs.plugins.kotlin)
 
