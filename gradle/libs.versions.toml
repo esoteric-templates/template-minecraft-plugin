@@ -9,8 +9,6 @@ paper-run = "2.3.1"
 
 yml = "0.8.0"
 
-shadow = "9.1.0"
-
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
 junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
@@ -23,5 +21,3 @@ paper = { id = "io.papermc.paperweight.userdev", version.ref = "paper" }
 paper-run = { id = "xyz.jpenilla.run-paper", version.ref = "paper-run" }
 
 yml = { id = "de.eldoria.plugin-yml.bukkit", version.ref = "yml" }
-
-shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

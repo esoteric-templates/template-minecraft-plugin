@@ -1,9 +1,7 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import java.util.jar.Attributes
 
 plugins {
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.shadow)
 
     alias(libs.plugins.paper)
     alias(libs.plugins.paper.run)
@@ -16,6 +14,8 @@ repositories {
 }
 
 dependencies {
+    library(kotlin("stdlib"))
+
     testImplementation(libs.kotlin.test)
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly(libs.junit.platform)
@@ -31,13 +31,6 @@ java {
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
-}
-
-tasks.withType<ShadowJar>().configureEach {
-    minimize()
-
-    enableAutoRelocation = true
-    relocationPrefix = "org.example.dependencies"
 }
 
 tasks.withType<AbstractArchiveTask>().configureEach {
@@ -90,4 +83,6 @@ bukkit {
     )
 
     website = "https://gitlab.com/esoterictemplates/template-minecraft-plugin"
+
+    generateLibrariesJson = true
 }
