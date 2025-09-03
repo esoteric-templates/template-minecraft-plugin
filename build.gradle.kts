@@ -6,8 +6,9 @@ plugins {
     alias(libs.plugins.shadow)
 
     alias(libs.plugins.paper)
-    alias(libs.plugins.paper.convention)
     alias(libs.plugins.paper.run)
+
+    alias(libs.plugins.yml)
 }
 
 repositories {
@@ -77,20 +78,16 @@ tasks.withType<AbstractArchiveTask>().configureEach {
     }
 }
 
-sourceSets.main {
-    resourceFactory {
-        paperPluginYaml {
-            name = "Template"
+bukkit {
+    name = "Template"
 
-            main = "org.example.Plugin"
-            apiVersion = "1.21.8"
-            version = "0.1.0-SNAPSHOT"
+    main = "org.example.Plugin"
+    apiVersion = "1.21.8"
+    version = "0.1.0-SNAPSHOT"
 
-            authors.add(
-                "Esoteric Enderman"
-            )
+    authors = listOf(
+        "Esoteric Enderman"
+    )
 
-            website = "https://gitlab.com/esoterictemplates/template-minecraft-plugin"
-        }
-    }
+    website = "https://gitlab.com/esoterictemplates/template-minecraft-plugin"
 }
