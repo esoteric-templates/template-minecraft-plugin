@@ -33,9 +33,6 @@ tasks {
         isReproducibleFileOrder = true
 
         from("LICENSE")
-        from("assets/text/licenses/") {
-            into("licenses/")
-        }
 
         filePermissions {
             user.read = true
@@ -73,10 +70,14 @@ tasks {
     }
 
     shadowJar {
-        minimize()
+        from("assets/text/licenses/") {
+            into("licenses/")
+        }
 
         enableAutoRelocation = true
         relocationPrefix = "org.example.dependencies"
+
+        minimize()
     }
 
     test {
