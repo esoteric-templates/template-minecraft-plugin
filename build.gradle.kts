@@ -73,7 +73,7 @@ bukkit {
     name = "Template"
 
     main = "org.example.Plugin"
-    apiVersion = "1.21.8"
+    apiVersion = "1.20"
     version = "0.1.0-SNAPSHOT"
 
     authors = listOf(
