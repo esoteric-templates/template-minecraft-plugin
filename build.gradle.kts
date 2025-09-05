@@ -81,6 +81,4 @@ bukkit {
     )
 
     website = "https://gitlab.com/esoterictemplates/template-minecraft-plugin"
-
-    generateLibrariesJson = true
 }
