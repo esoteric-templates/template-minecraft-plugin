@@ -27,52 +27,47 @@ java {
     }
 }
 
-tasks.named<Test>("test") {
-    useJUnitPlatform()
-}
+tasks {
+    withType<AbstractArchiveTask> {
+        isPreserveFileTimestamps = false
+        isReproducibleFileOrder = true
 
-tasks.withType<AbstractArchiveTask>().configureEach {
-    isPreserveFileTimestamps = false
-    isReproducibleFileOrder = true
+        from("LICENSE")
 
-    from("LICENSE")
-    from("assets/text/licenses/") {
-        into("licenses/")
-    }
+        filePermissions {
+            user.read = true
+            user.write = true
+            user.execute = false
 
-    filePermissions {
-        user.read = true
-        user.write = true
-        user.execute = false
+            group.read = true
+            group.write = false
+            group.execute = false
 
-        group.read = true
-        group.write = false
-        group.execute = false
+            other.read = true
+            other.write = false
+            other.execute = false
+        }
 
-        other.read = true
-        other.write = false
-        other.execute = false
-    }
+        dirPermissions {
+            user.read = true
+            user.write = true
+            user.execute = true
 
-    dirPermissions {
-        user.read = true
-        user.write = true
-        user.execute = true
+            group.read = true
+            group.write = false
+            group.execute = true
 
-        group.read = true
-        group.write = false
-        group.execute = true
-
-        other.read = false
-        other.write = false
-        other.execute = true
+            other.read = false
+            other.write = false
+            other.execute = true
+        }
     }
 }
 
 bukkit {
     name = "Template"
 
-    main = "org.example.Plugin"
+    main = "org.example.project.Plugin"
     apiVersion = "1.20"
     version = "0.1.0-SNAPSHOT"
 
