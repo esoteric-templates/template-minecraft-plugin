@@ -3,8 +3,6 @@ import java.util.jar.Attributes
 plugins {
     alias(libs.plugins.kotlin)
     application
-
-    alias(libs.plugins.shadow)
 }
 
 repositories {
@@ -70,13 +68,6 @@ tasks {
         manifest {
             attributes[Attributes.Name.MAIN_CLASS.toString()] = application.mainClass
         }
-    }
-
-    shadowJar {
-        minimize()
-
-        enableAutoRelocation = true
-        relocationPrefix = "org.example.dependencies"
     }
 
     test {

@@ -4,8 +4,6 @@ junit-jupiter = "5.12.1"
 
 kotlin = "2.1.20"
 
-shadow = "9.1.0"
-
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
 junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
@@ -13,5 +11,3 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-
-shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
