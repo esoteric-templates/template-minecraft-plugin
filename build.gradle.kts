@@ -26,14 +26,23 @@ application {
 }
 
 tasks {
+    distTar {
+        from("assets/text/licenses/") {
+            into("licenses/")
+        }
+    }
+
+    distZip {
+        from("assets/text/licenses/") {
+            into("licenses/")
+        }
+    }
+
     withType<AbstractArchiveTask> {
         isPreserveFileTimestamps = false
         isReproducibleFileOrder = true
 
         from("LICENSE")
-        from("assets/text/licenses/") {
-            into("licenses/")
-        }
 
         filePermissions {
             user.read = true
