@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin
 @Suppress("unused")
 class Plugin : JavaPlugin() {
 
-    private val pair = Pair<String, String>("Hello World!", "Goodbye World!")
+    private val pair = Pair("Hello World!", "Goodbye World!")
 
     override fun onEnable() {
         logger.info(pair.first)
