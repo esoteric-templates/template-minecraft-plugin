@@ -1,5 +1,8 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.shadow)
 
     alias(libs.plugins.paper)
     alias(libs.plugins.paper.run)
@@ -13,6 +16,7 @@ repositories {
 
 dependencies {
     library(kotlin("stdlib"))
+    implementation(libs.metrics)
 
     testImplementation(libs.kotlin.test)
     testImplementation(libs.junit.jupiter)
@@ -61,6 +65,21 @@ tasks {
             other.write = false
             other.execute = true
         }
+    }
+
+    withType<ShadowJar> {
+        from("assets/text/licenses") {
+            into("licenses")
+        }
+
+        archiveClassifier = ""
+
+        enableAutoRelocation = true
+        relocationPrefix = "org.example.project.dependencies"
+    }
+
+    jar {
+        enabled = false
     }
 }
 
