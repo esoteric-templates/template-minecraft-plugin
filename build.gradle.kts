@@ -95,7 +95,7 @@ bukkit {
 
     main = "org.example.project.Plugin"
     apiVersion = "1.20"
-    version = "0.1.0-SNAPSHOT"
+    version = project.version.toString()
 
     authors = listOf(
         "Esoteric Enderman"
