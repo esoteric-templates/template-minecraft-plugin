@@ -31,6 +31,13 @@ java {
     }
 }
 
+version = ProcessBuilder("git", "describe", "--tags", "--always", "--dirty")
+    .start()
+    .inputStream
+    .bufferedReader()
+    .readText()
+    .trim()
+
 tasks {
     withType<AbstractArchiveTask> {
         isPreserveFileTimestamps = false
