@@ -1,8 +1,8 @@
-import java.util.jar.Attributes
+//import java.util.jar.Attributes
 
 plugins {
     alias(libs.plugins.kotlin)
-    application
+//    application
 }
 
 repositories {
@@ -21,9 +21,9 @@ java {
     }
 }
 
-application {
-    mainClass = "org.example.project.AppKt"
-}
+//application {
+//    mainClass = "org.example.project.AppKt"
+//}
 
 version = ProcessBuilder("git", "describe", "--tags", "--always", "--dirty")
     .start()
@@ -68,23 +68,23 @@ tasks {
         }
     }
 
-    distTar {
-        from("assets/text/licenses/") {
-            into("licenses/")
-        }
-    }
+//    distTar {
+//        from("assets/text/licenses/") {
+//            into("licenses/")
+//        }
+//    }
+//
+//    distZip {
+//        from("assets/text/licenses/") {
+//            into("licenses/")
+//        }
+//    }
 
-    distZip {
-        from("assets/text/licenses/") {
-            into("licenses/")
-        }
-    }
-
-    withType<Jar> {
-        manifest {
-            attributes[Attributes.Name.MAIN_CLASS.toString()] = application.mainClass
-        }
-    }
+//    withType<Jar> {
+//        manifest {
+//            attributes[Attributes.Name.MAIN_CLASS.toString()] = application.mainClass
+//        }
+//    }
 
     test {
         useJUnitPlatform()
