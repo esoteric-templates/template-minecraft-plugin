@@ -26,6 +26,7 @@ java {
 //}
 
 version = ProcessBuilder("git", "describe", "--tags", "--always", "--dirty")
+    .directory(project.projectDir)
     .start()
     .inputStream
     .bufferedReader()
