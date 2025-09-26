@@ -84,6 +84,8 @@ tasks {
 
         enableAutoRelocation = true
         relocationPrefix = "org.example.project.dependencies"
+
+        minimizeJar = true
     }
 
     jar {
