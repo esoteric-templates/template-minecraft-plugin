@@ -2,7 +2,7 @@ package org.example.project
 
 //import dev.jorel.commandapi.CommandAPI
 //import dev.jorel.commandapi.CommandAPIBukkitConfig
-import org.bstats.bukkit.Metrics
+//import org.bstats.bukkit.Metrics
 import org.bukkit.plugin.java.JavaPlugin
 
 @Suppress("unused")
@@ -16,11 +16,11 @@ class Plugin : JavaPlugin() {
 //        CommandAPI.onLoad(CommandAPIBukkitConfig(this))
 //        CommandAPI.onEnable()
 
-        try {
+//        try {
 //            Metrics(this, https://bstats.org/what-is-my-plugin-id)
-        } catch (exception: Exception) {
-            exception.printStackTrace()
-        }
+//        } catch (exception: Exception) {
+//            exception.printStackTrace()
+//        }
     }
 
     override fun onDisable() {

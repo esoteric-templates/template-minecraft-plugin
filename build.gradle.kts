@@ -1,8 +1,8 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+//import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.shadow)
+//    alias(libs.plugins.shadow)
 
     alias(libs.plugins.paper)
     alias(libs.plugins.paper.run)
@@ -17,7 +17,7 @@ repositories {
 dependencies {
     library(kotlin("stdlib"))
 //    library(libs.commands)
-    implementation(libs.metrics)
+//    implementation(libs.metrics)
 
     testImplementation(libs.kotlin.test)
     testImplementation(libs.junit.jupiter)
@@ -76,22 +76,22 @@ tasks {
         }
     }
 
-    withType<ShadowJar> {
-        from("assets/text/licenses") {
-            into("licenses")
-        }
-
-        archiveClassifier = ""
-
-        enableAutoRelocation = true
-        relocationPrefix = "org.example.project.dependencies"
-
-        minimizeJar = true
-    }
-
-    jar {
-        enabled = false
-    }
+//    withType<ShadowJar> {
+//        from("assets/text/licenses") {
+//            into("licenses")
+//        }
+//
+//        archiveClassifier = ""
+//
+//        enableAutoRelocation = true
+//        relocationPrefix = "org.example.project.dependencies"
+//
+//        minimizeJar = true
+//    }
+//
+//    jar {
+//        enabled = false
+//    }
 }
 
 bukkit {
