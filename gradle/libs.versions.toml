@@ -1,5 +1,6 @@
 [versions]
 #commands = "10.1.2"
+#config = "4.6.1"
 #metrics = "3.1.0"
 
 junit-jupiter = "5.12.1"
@@ -15,6 +16,7 @@ yml = "0.8.0"
 
 [libraries]
 #commands = { module = "dev.jorel:commandapi-bukkit-shade-mojang-mapped", version.ref = "commands" }
+#config = { module = "de.exlll:configlib-yaml", version.ref = "config" }
 #metrics = { module = "org.bstats:bstats-bukkit", version.ref = "metrics" }
 
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
