@@ -77,6 +77,21 @@ tasks {
         }
     }
 
+    runServer {
+        val metricsEnabled = (project.findProperty("metrics") as? String)?.toBoolean() == true
+
+        doFirst {
+            val metricsConfig = runDirectory.get().asFile.resolve("plugins/bStats/config.yml")
+
+            metricsConfig.parentFile.mkdirs()
+            metricsConfig.writeText("""
+                enabled: $metricsEnabled
+                logFailedRequests: true
+
+            """.trimIndent())
+        }
+    }
+
 //    withType<ShadowJar> {
 //        from("assets/text/licenses") {
 //            into("licenses")
