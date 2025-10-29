@@ -71,18 +71,6 @@ tasks {
         }
     }
 
-//    distTar {
-//        from("assets/text/licenses/") {
-//            into("licenses/")
-//        }
-//    }
-//
-//    distZip {
-//        from("assets/text/licenses/") {
-//            into("licenses/")
-//        }
-//    }
-
 //    withType<Jar> {
 //        manifest {
 //            attributes[Attributes.Name.MAIN_CLASS.toString()] = application.mainClass
@@ -93,6 +81,12 @@ tasks {
         useJUnitPlatform()
     }
 }
+
+//listOf(tasks.distTar, tasks.distZip).forEach {
+//    it.get().from("assets/text/licenses/") {
+//        into("licenses/")
+//    }
+//}
 
 configurations.all {
     resolutionStrategy {
