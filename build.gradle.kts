@@ -21,8 +21,10 @@ java {
     }
 }
 
+group = "org.example"
+
 //application {
-//    mainClass = "org.example.project.AppKt"
+//    mainClass = "$group.$name.AppKt"
 //}
 
 version = ProcessBuilder("git", "describe", "--tags", "--always", "--dirty")
