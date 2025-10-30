@@ -1,9 +1,9 @@
 package org.example.template
 
 //import dev.jorel.commandapi.CommandAPI
-//import dev.jorel.commandapi.CommandAPIBukkitConfig
 //import org.bstats.bukkit.Metrics
 //import de.exlll.configlib.YamlConfigurations
+//import dev.jorel.commandapi.CommandAPIPaperConfig
 import org.bukkit.plugin.java.JavaPlugin
 //import java.nio.file.Path
 
@@ -25,7 +25,7 @@ class Plugin : JavaPlugin() {
 //
 //        YamlConfigurations.save(configFile, Config::class.java, config)
 
-//        CommandAPI.onLoad(CommandAPIBukkitConfig(this))
+//        CommandAPI.onLoad(CommandAPIPaperConfig(this))
 //        CommandAPI.onEnable()
 
 //        try {
