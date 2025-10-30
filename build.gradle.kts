@@ -81,8 +81,10 @@ tasks {
 }
 
 //listOf(tasks.distTar, tasks.distZip).forEach {
-//    it.get().from("assets/text/licenses/") {
-//        into("licenses/")
+//    it {
+//        from("assets/text/licenses/") {
+//            into("licenses/")
+//        }
 //    }
 //}
 
