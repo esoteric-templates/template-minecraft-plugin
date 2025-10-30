@@ -33,6 +33,8 @@ java {
     }
 }
 
+group = "org.example"
+
 version = ProcessBuilder("git", "describe", "--tags", "--always", "--dirty")
     .directory(project.projectDir)
     .start()
@@ -45,8 +47,6 @@ tasks {
     withType<AbstractArchiveTask> {
         isPreserveFileTimestamps = false
         isReproducibleFileOrder = true
-
-        from("LICENSE")
 
         filePermissions {
             user.read = true
@@ -100,7 +100,7 @@ tasks {
 //        archiveClassifier = ""
 //
 //        enableAutoRelocation = true
-//        relocationPrefix = "org.example.project.dependencies"
+//        relocationPrefix = "${project.group}.${project.name}.dependencies"
 //
 //        minimizeJar = true
 //    }
@@ -110,10 +110,20 @@ tasks {
 //    }
 }
 
+listOf(
+//    tasks.shadowJar,
+    tasks.jar,
+    tasks.kotlinSourcesJar,
+).forEach {
+    it {
+        from("LICENSE")
+    }
+}
+
 bukkit {
     name = "Template"
 
-    main = "org.example.project.Plugin"
+    main = "$group.${project.name}.Plugin"
     apiVersion = "1.20"
     version = project.version.toString()
 

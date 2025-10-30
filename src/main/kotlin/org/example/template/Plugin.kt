@@ -1,4 +1,4 @@
-package org.example.project
+package org.example.template
 
 //import dev.jorel.commandapi.CommandAPI
 //import dev.jorel.commandapi.CommandAPIBukkitConfig
