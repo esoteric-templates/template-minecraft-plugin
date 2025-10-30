@@ -119,6 +119,7 @@ listOf(
     tasks.kotlinSourcesJar,
 ).forEach {
     it {
+        from("README.md")
         from("LICENSE")
     }
 }
