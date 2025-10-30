@@ -128,7 +128,7 @@ bukkit {
     name = "Template"
 
     main = "$group.${project.name}.Plugin"
-    apiVersion = "1.20"
+    apiVersion = "1.20.6"
     version = project.version.toString()
 
     authors = listOf(
