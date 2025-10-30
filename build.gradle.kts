@@ -78,7 +78,10 @@ tasks {
     }
 
     runServer {
+        val version = project.findProperty("minecraft.version") as? String ?: "1.21.8"
         val metricsEnabled = (project.findProperty("metrics") as? String)?.toBoolean() == true
+
+        minecraftVersion(version)
 
         doFirst {
             val metricsConfig = runDirectory.get().asFile.resolve("plugins/bStats/config.yml")
