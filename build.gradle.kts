@@ -133,6 +133,7 @@ listOf(
 
 bukkit {
     name = "Template"
+    description = "A template for Minecraft Paper plugins"
 
     main = "$group.${project.name}.Plugin"
     apiVersion = "1.20.6"
@@ -142,5 +143,5 @@ bukkit {
         "Esoteric Enderman"
     )
 
-    website = "https://gitlab.com/esoterictemplates/template-minecraft-plugin"
+    website = "https://gitlab.com/esoterictemplates/templates/template-minecraft-plugin"
 }
