@@ -84,13 +84,20 @@ tasks {
         minecraftVersion(version)
 
         doFirst {
-            val metricsConfig = runDirectory.get().asFile.resolve("plugins/bStats/config.yml")
+            val run = runDirectory.get().asFile
 
+            val metricsConfig = run.resolve("plugins/bStats/config.yml")
             metricsConfig.parentFile.mkdirs()
             metricsConfig.writeText("""
                 enabled: $metricsEnabled
                 logFailedRequests: true
 
+            """.trimIndent())
+
+            val eula = run.resolve("eula.txt")
+            eula.parentFile.mkdirs()
+            eula.writeText("""
+                eula=true
             """.trimIndent())
         }
     }
