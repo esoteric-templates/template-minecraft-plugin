@@ -1,11 +1,12 @@
 //import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import com.undefinedcreations.nova.ServerType
 
 plugins {
     alias(libs.plugins.kotlin)
 //    alias(libs.plugins.shadow)
 
     alias(libs.plugins.paper)
-    alias(libs.plugins.paper.run)
+    alias(libs.plugins.nova)
 
     alias(libs.plugins.yml)
 }
@@ -78,26 +79,26 @@ tasks {
     }
 
     runServer {
-        val version = project.findProperty("minecraft.version") as? String ?: "1.21.8"
+        val version = project.findProperty("minecraft.version") as? String ?: "1.21.10"
+        val serverSoftware = (project.findProperty("minecraft.software") as? String ?: "papermc")
         val metricsEnabled = (project.findProperty("metrics") as? String)?.toBoolean() == true
+
+        val run = File(project.projectDir, "run/${serverSoftware}/${version}")
+
+        serverFolder(run)
+        serverType(ServerType.valueOf(serverSoftware.uppercase()))
 
         minecraftVersion(version)
 
-        doFirst {
-            val run = runDirectory.get().asFile
+        acceptMojangEula()
 
+        doFirst {
             val metricsConfig = run.resolve("plugins/bStats/config.yml")
             metricsConfig.parentFile.mkdirs()
             metricsConfig.writeText("""
                 enabled: $metricsEnabled
                 logFailedRequests: true
 
-            """.trimIndent())
-
-            val eula = run.resolve("eula.txt")
-            eula.parentFile.mkdirs()
-            eula.writeText("""
-                eula=true
             """.trimIndent())
         }
     }
