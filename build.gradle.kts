@@ -144,5 +144,5 @@ bukkit {
         "Esoteric Enderman"
     )
 
-    website = "https://gitlab.com/esoterictemplates/templates/template-minecraft-plugin"
+    website = "https://gitlab.com/esoteric-templates/templates/template-minecraft-plugin"
 }
