@@ -2,6 +2,8 @@ package org.example.template
 
 //import dev.jorel.commandapi.CommandAPI
 //import org.bstats.bukkit.Metrics
+//import de.exlll.configlib.NameFormatters
+//import de.exlll.configlib.YamlConfigurationProperties
 //import de.exlll.configlib.YamlConfigurations
 //import dev.jorel.commandapi.CommandAPIPaperConfig
 import org.bukkit.plugin.java.JavaPlugin
@@ -16,14 +18,18 @@ class Plugin : JavaPlugin() {
     override fun onEnable() {
         logger.info(pair.first)
 
+//        val configProperties = YamlConfigurationProperties.newBuilder()
+//            .setNameFormatter(NameFormatters.LOWER_KEBAB_CASE)
+//            .build()
+
 //        val configFile = Path.of(dataFolder.path, "config.yml")
 //        config = try {
-//            YamlConfigurations.load(configFile, Config::class.java)
+//            YamlConfigurations.load(configFile, Config::class.java, configProperties)
 //        } catch (e: Exception) {
 //            Config()
 //        }
 //
-//        YamlConfigurations.save(configFile, Config::class.java, config)
+//        YamlConfigurations.save(configFile, Config::class.java, config, configProperties)
 
 //        CommandAPI.onLoad(CommandAPIPaperConfig(this))
 //        CommandAPI.onEnable()
