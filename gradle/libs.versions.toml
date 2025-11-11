@@ -3,8 +3,6 @@
 #config = "4.6.3"
 #metrics = "3.1.0"
 
-junit-jupiter = "5.12.1"
-
 
 kotlin = "2.1.20"
 #shadow = "9.1.0"
@@ -18,10 +16,6 @@ yml = "0.8.0"
 #commands = { module = "dev.jorel:commandapi-paper-shade", version.ref = "commands" }
 #config = { module = "de.exlll:configlib-yaml", version.ref = "config" }
 #metrics = { module = "org.bstats:bstats-bukkit", version.ref = "metrics" }
-
-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
-junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

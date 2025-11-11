@@ -21,10 +21,6 @@ dependencies {
 //    library(libs.config)
 //    implementation(libs.metrics)
 
-    testImplementation(libs.kotlin.test)
-    testImplementation(libs.junit.jupiter)
-    testRuntimeOnly(libs.junit.platform)
-
     paperweight.paperDevBundle("1.21.8-R0.1-SNAPSHOT")
 }
 
