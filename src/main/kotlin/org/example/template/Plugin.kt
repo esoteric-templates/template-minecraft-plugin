@@ -17,6 +17,9 @@ class Plugin : JavaPlugin() {
 
     override fun onEnable() {
         logger.info(pair.first)
+        logger.fine("Fine!")
+        logger.finer("Finer!")
+        logger.finest("Finest!")
 
 //        val configProperties = YamlConfigurationProperties.newBuilder()
 //            .setNameFormatter(NameFormatters.LOWER_KEBAB_CASE)

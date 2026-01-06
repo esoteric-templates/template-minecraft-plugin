@@ -96,6 +96,36 @@ tasks {
                 logFailedRequests: true
 
             """.trimIndent())
+
+            val properties = run.resolve("server.properties")
+            if (!properties.exists()) {
+                properties.parentFile.mkdirs()
+                properties.writeText("""
+                        gamemode=creative
+                        generate-structures=false
+                        generator-settings={"biome":"minecraft:plains","layers":[{"block":"minecraft:air","height":127},{"block":"minecraft:barrier","height":1}]}
+                        level-type=minecraft\:flat
+                        spawn-protection=0
+                        allow-flight=true
+
+                    """.trimIndent()
+                )
+            }
+
+            val bukkit = run.resolve("bukkit.yml")
+            if (!bukkit.exists()) {
+                bukkit.parentFile.mkdirs()
+                bukkit.writeText("""
+                    spawn-limits:
+                    monsters: 0
+                    animals: 0
+                    water-animals: 0
+                    water-ambient: 0
+                    water-underground-creature: 0
+                    axolotls: 0
+                    ambient: 0
+                """.trimIndent())
+            }
         }
     }
 
