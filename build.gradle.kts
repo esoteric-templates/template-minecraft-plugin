@@ -141,7 +141,7 @@ tasks {
 
 //    withType<ShadowJar> {
 //        from("assets/text/licenses") {
-//            into("licenses")
+//            into("META-INF/licenses")
 //        }
 //
 //        archiveClassifier = ""
