@@ -1,5 +1,6 @@
 //import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import com.undefinedcreations.nova.ServerType
+import java.util.jar.Attributes
 
 plugins {
     alias(libs.plugins.kotlin)
@@ -31,6 +32,7 @@ java {
 }
 
 group = "org.example"
+description = "A template repository for Minecraft plugins"
 
 version = ProcessBuilder("git", "describe", "--tags", "--always", "--dirty")
     .directory(project.projectDir)
@@ -71,6 +73,14 @@ tasks {
             other.read = false
             other.write = false
             other.execute = true
+        }
+    }
+
+    withType<Jar> {
+        manifest {
+            attributes[Attributes.Name.IMPLEMENTATION_TITLE.toString()] = "Template Minecraft Plugin"
+            attributes[Attributes.Name.IMPLEMENTATION_VERSION.toString()] = project.version
+            attributes[Attributes.Name.IMPLEMENTATION_VENDOR.toString()] = "Дима Ш."
         }
     }
 
@@ -153,8 +163,10 @@ listOf(
     tasks.kotlinSourcesJar,
 ).forEach {
     it {
-        from("README.md")
-        from("LICENSE")
+        into("META-INF") {
+            from("LICENSE.txt")
+            from("NOTICE.txt")
+        }
     }
 }
 
