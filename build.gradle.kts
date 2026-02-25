@@ -136,6 +136,10 @@ tasks {
                     ambient: 0
                 """.trimIndent())
             }
+
+            run.resolve("plugins/").listFiles()?.filter {
+                file -> file.name.startsWith("${project.name}-")
+            }?.forEach { it.delete() }
         }
     }
 
